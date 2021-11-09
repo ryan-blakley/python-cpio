@@ -1,0 +1,12 @@
+.coverage
+.idea*
+.vscode*
+build/
+dist/
+bin/
+lib/
+lib64/
+RPMS/
+SRPMS/
+*.egg-info*
+__pycache__/
