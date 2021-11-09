@@ -1,21 +1,26 @@
 Name:           python-cpio
-Version:        0.1
-Release:        41%{?dist}
+Version:        0.2
+Release:        1
 Summary:        A Python module for accessing cpio archives
 
 License:        LGPLv2+
-URL:            http://developer.berlios.de/projects/python-cpio/
-Source0:        http://download.berlios.de/python-cpio/python-cpio-0.1.tar.bz2
+URL:            https://github.com/ryan-blakley/%{name}
+Source0:        https://github.com/ryan-blakley/%{name}/archive/refs/tags/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
-%description
+
+%global _description\
 This is a Python module for accessing cpio archives.
+
+%description %_description
 
 %package -n python%{python3_pkgversion}-cpio
 Summary: %summary
+
+%description -n python%{python3_pkgversion}-cpio %_description
 
 %prep
 %setup -q
@@ -35,6 +40,9 @@ Summary: %summary
 
 
 %changelog
+* Tue Nov 09 2021 Ryan Blakley <rblakley@redhat.com> 0.2-1
+- Bump the version with tito.
+
 * Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.1-41
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
 
