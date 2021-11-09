@@ -5,7 +5,7 @@ Summary:        A Python module for accessing cpio archives
 
 License:        LGPLv2+
 URL:            https://github.com/ryan-blakley/%{name}
-Source0:        https://github.com/ryan-blakley/%{name}/archive/refs/tags/%{name}-%{version}.tar.gz
+Source0:        https://github.com/ryan-blakley/%{name}/archive/refs/tags/%{name}-%{version}-%{release}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
