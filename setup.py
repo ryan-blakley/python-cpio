@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python-cpio',
-    version="0.2",
+    version="0.3",
     author="Ignacio Vazquez-Abrams",
     author_email="ivazquez@ivazquez.net",
     maintainer="Ryan Blakley",
