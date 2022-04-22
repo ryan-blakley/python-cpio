@@ -1,4 +1,3 @@
-import atexit
 """
 cpioarchive: Support for cpio archives
 Copyright (C) 2006 Ignacio Vazquez-Abrams
@@ -14,6 +13,7 @@ details.
 You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the 
 Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 """
+import atexit
 
 
 def version():
@@ -65,6 +65,7 @@ class CpioEntry(object):
         self.curoffset = 0
         self.cpio = cpio
         self.closed = False
+        self.fileobj = self.read(whole=True)
 
     def close(self):
         """
@@ -73,22 +74,27 @@ class CpioEntry(object):
         """
         self.closed = True
 
-    def flush(self):
-        """Flush the entry (no-op)."""
-        pass
-
-    def read(self, size=None):
+    def read(self, size=None, whole=False):
         """
         Read data from the entry.
 
         Args:
             size (int): Number of bytes to read (default: whole entry)
+            whole (bool): Boolean for if the whole file should be read in
 
         Returns:
             bytes: The read in file object.
         """
         if self.closed:
             raise ValueError('read operation on closed file')
+
+        if whole:
+            start = self.cpio.file.tell()
+            self.cpio.file.seek(self.datastart, 0)
+            fileobj = self.cpio.file.read(self.size)
+            self.cpio.file.seek(start, 0)
+
+            return fileobj
 
         self.cpio.file.seek(self.datastart + self.curoffset, 0)
 

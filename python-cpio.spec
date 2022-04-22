@@ -1,19 +1,19 @@
 Name:           python-cpio
 Version:        0.2
-Release:        1
+Release:        1%{?dist}
 Summary:        A Python module for accessing cpio archives
 
 License:        LGPLv2+
 URL:            https://github.com/ryan-blakley/%{name}
-Source0:        https://github.com/ryan-blakley/%{name}/archive/refs/tags/%{name}-%{version}-%{release}.tar.gz
+Source0:        https://github.com/ryan-blakley/%{name}/archive/refs/tags/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 
-%global _description\
-This is a Python module for accessing cpio archives.
+%global _description %{expand:
+This is a Python module for accessing cpio archives.}
 
 %description %_description
 
@@ -33,10 +33,8 @@ Summary: %summary
 
 %files -n python%{python3_pkgversion}-cpio
 %license LICENSE
-%doc AUTHORS README.md TODO
-%{python3_sitelib}/cpioarchive.py*
-%{python3_sitelib}/__pycache__/*
-%{python3_sitelib}/*.egg-info
+%doc AUTHORS README.md
+%{python3_sitelib}/*
 
 
 %changelog
