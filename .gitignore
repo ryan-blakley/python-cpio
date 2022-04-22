@@ -10,3 +10,5 @@ RPMS/
 SRPMS/
 *.egg-info*
 __pycache__/
+*.img
+test.py
