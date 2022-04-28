@@ -152,6 +152,7 @@ class CpioArchive(object):
         self._infos = []
         self._ptr = 0
         self.closed = False
+        self.entries = dict()
 
         if not mode == 'r':
             raise NotImplementedError()
@@ -216,6 +217,7 @@ class CpioArchive(object):
 
             if not ce.name == "TRAILER!!!":
                 self._infos.append(ce)
+                self.entries.update({ce.name: ce})
             else:
                 return
 
