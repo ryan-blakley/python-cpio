@@ -1,5 +1,5 @@
 Name:           python-cpio
-Version:        0.3
+Version:        0.4
 Release:        1%{?dist}
 Summary:        A Python module for accessing cpio archives
 
@@ -38,6 +38,9 @@ Summary: %summary
 
 
 %changelog
+* Thu Apr 28 2022 Ryan Blakley <rblakley@redhat.com> 0.4-1
+- Added entries attribute (rblakley@redhat.com)
+
 * Fri Apr 22 2022 Ryan Blakley <rblakley@redhat.com> 0.3-1
 - Misc changes (rblakley@redhat.com)
 - Add in reading in the fileobj for each entry (rblakley@redhat.com)
